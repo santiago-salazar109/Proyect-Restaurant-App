@@ -1,0 +1,32 @@
+{
+  "name": "api-restaurante",
+  "version": "1.0.0",
+  "description": "API para la gestión de usuarios y productos de un restaurante",
+  "keywords": [
+    "api",
+    "restaurante",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/SantiagoSalazar1005/Proyecto-de-gastrobar#readme",
+  "bugs": {
+    "url": "https://github.com/SantiagoSalazar1005/Proyecto-de-gastrobar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SantiagoSalazar1005/Proyecto-de-gastrobar.git"
+  },
+  "license": "ISC",
+  "author": "Santiago Salazar",
+  "type": "commonjs",
+  "main": "Index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

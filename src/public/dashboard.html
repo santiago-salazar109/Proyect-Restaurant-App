@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | GastroBar El Buen Sabor</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+
+            /* FONDO */
+            background-image: url("Img/Dashboard.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            background: rgba(0,0,0,0.75);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            width: 400px;
+        }
+
+        .dashboard-container h1 {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-container p {
+            margin-bottom: 20px;
+        }
+
+        .dashboard-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            background-color: #28a745;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .logout {
+            background-color: #dc3545;
+        }
+
+        .logout:hover {
+            background-color: #c82333;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="dashboard-container">
+
+        <h1>GastroBar El Buen Sabor</h1>
+
+        <p>
+            Bienvenido,
+            <strong id="nombreEmpleado"></strong>
+        </p>
+
+        <div class="dashboard-buttons">
+
+            <button id="btnMenu" class="btn">
+                Ver menú de productos
+            </button>
+
+            <button id="btnSalir" class="btn logout">
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // -----------------------------
+        // VALIDACIÓN DE SESIÓN
+        // -----------------------------
+        const empleado = JSON.parse(localStorage.getItem("empleado"));
+
+        if (!empleado) {
+            window.location.href = "login.html";
+        }
+
+        // Mostrar nombre
+        document.getElementById("nombreEmpleado").textContent = empleado.nombre;
+
+
+        // -----------------------------
+        // BOTÓN MENÚ
+        // -----------------------------
+        document.getElementById("btnMenu").addEventListener("click", () => {
+
+            window.location.href = "menu.html";
+
+        });
+
+
+        // -----------------------------
+        // BOTÓN SALIR
+        // -----------------------------
+        document.getElementById("btnSalir").addEventListener("click", () => {
+
+            localStorage.removeItem("empleado");
+
+            window.location.href = "login.html";
+
+        });
+
+    </script>
+
+</body>
+</html>
